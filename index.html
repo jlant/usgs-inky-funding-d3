@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Water Use Map</title>
+    <title>USGS Water Science Centers Funding Map</title>
     <script src="js/d3.js"></script>
     <script src="js/colorbrewer.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,8 +24,12 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h2 id="statename">Kentucky</h2>
-                <h2 id="statevalue">$5865505</h2>
+                <h1 id="state_name">Kentucky</h1>
+                <h2 id="state_total">Total: $5,309,375.19</h2>
+                <br>
+                <h4 id="state_appropriated align-right">Appropriated: $839,207.00</h4>
+                <h4 id="state_other align-right">Other: $5,000.00</h4>
+                <h4 id="state_reimbursable">Reimbursable: $4,414,168.19</h4>
             </div>
         </div>
         <div class="row">
@@ -44,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label class="checkbox-sort"><input type="checkbox"> Sort water use</label>
+                <label class="checkbox-sort"><input type="checkbox"> Sort total funding</label>
             </div>
         </div>
         <div class="row">
@@ -64,7 +68,7 @@
             </div>
         </div>
     </div>
-    <script src="js/bar-wateruse.js"></script>
+    <script src="js/bar-funding.js"></script>
     <script src="js/map-funding.js"></script>
 </body>
 </html>

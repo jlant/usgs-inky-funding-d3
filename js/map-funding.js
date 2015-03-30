@@ -23,7 +23,7 @@ var tooltip = d3.select("body")
 
 // create a quantize scale (function) to sort data values into buckets of color
 var color = d3.scale.quantize()
-	.range(colorbrewer.Greens[5])
+	.range(colorbrewer.Reds[5])
 
 // make a legend
 var legend = d3.select("#legend")
@@ -43,7 +43,7 @@ function calculate_color(d) {
 }
 
 // load the agriculture data
-d3.csv("data/2010-us-total-funding.csv", function(funding_data) {
+d3.csv("data/2015-usgs-water-science-centers-total-funding.csv", function(funding_data) {
 
 	// set the input domain for the color scale
 	color.domain([
@@ -104,8 +104,11 @@ d3.csv("data/2010-us-total-funding.csv", function(funding_data) {
 					.transition().duration(500)
 					.attr("fill", "orange")
 					.attr("stroke-width", 3)
-				d3.select("#statename").text(d.properties.name)
-				d3.select("#statevalue").text("$" + d.properties.total);
+				d3.select("#state_name").text(d.properties.name)
+				d3.select("#state_total").text("Total: " + d3.format("$,.2f")(d.properties.total))
+				d3.select("#state_appropriated").text("Appropriated: " + d3.format("$,.2f")(d.properties.appropriated))
+				d3.select("#state_other").text("Other: " + d3.format("$,.2f")(d.properties.other))
+				d3.select("#state_reimbursable").text("Reimbursable: " + d3.format("$,.2f")(d.properties.reimbursable));
 			})
 			.on("mouseout", function(d) {
 				d3.select(this)
@@ -117,11 +120,14 @@ d3.csv("data/2010-us-total-funding.csv", function(funding_data) {
 			.on("click", function(d) {	// display a tooltip
 		  		return tooltip.style("visibility", "visible")
 		  				.style("top", (event.pageY + 10) + "px").style("left", (event.pageX + 10) + "px")
-		  				.html("<h3>" + d.properties.name + "</h3>" + "<br\>Total = $" + d.properties.total);
-		  				// .text("Total = $" + d.properties.value)
-		  				// .text("-------------")
-		  				// .text("Appropriated = $" + d.properties.appropriated)
-		  				// .text("Reimbursable = $" + d.properties.appropriated);
+		  				.html("<h2>" + d.properties.name + "</h2>" + 
+		  					  "<br\>" +
+		  					  "<h3>Total: " + d3.format("$,.2f")(d.properties.total) + "</h3>" + 
+		  					  "<hr>" +
+		  					  "<h4>Appropriated: " + d3.format("$,.2f")(d.properties.appropriated) + "</h4>" + 
+		  					  "<h4>Other: " + d3.format("$,.2f")(d.properties.other) + "</h4>" +
+		  					  "<h4>Reimbursable: " + d3.format("$,.2f")(d.properties.reimbursable) + "</h4>");
+
 		  	})
 		  	.on("mousemove", function() {
 		  		return tooltip.style("top", (event.pageY + 10) + "px").style("left", (event.pageX + 10) + "px");
@@ -135,7 +141,7 @@ d3.csv("data/2010-us-total-funding.csv", function(funding_data) {
 			.style("border-top-color", String)
 			.text(function(d) {
 				var r = color.invertExtent(d);
-				var format = d3.format("0.0f");
+				var format = d3.format("$,.2f");
 				return format(+r[0]) + " - " + format(+r[1]);
 			});
 	});
