@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Water Use Map</title>
+    <script src="js/d3.js"></script>
+    <script src="js/colorbrewer.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/colorbrewer.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Interactive USGS Funding Map and Bar Chart</h1>
+                <h3>By <a href="https://github.com/jlant-usgs/" target="_blank">Jeremiah Lant</a> using <a href="http://d3js.org/" target="_blank">D3.js</a></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="statename">Kentucky</h2>
+                <h2 id="statevalue">$5865505</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="legend">
+                <p>Total Funding</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="map">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label class="checkbox-sort"><input type="checkbox"> Sort water use</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="bar-chart">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Description</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                An interactive map of total funding for USGS Water Science Centers by state during the year 2015. The data is provided by the <a href="http://www.usgs.gov/" target="_blank">United States Geological Survey (USGS)</a>. The choropleth map shows total funding by state. The bar charts show the funding proportions broken down into water science categories. The map was built using <a href="http://d3js.org/" target="_blank">D3.js</a>, a javascript library used for data visualization.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/bar-wateruse.js"></script>
+    <script src="js/map-funding.js"></script>
+</body>
+</html>
