@@ -105,7 +105,7 @@ d3.csv("data/2015-usgs-water-science-centers-total-funding.csv", function(fundin
 					.attr("fill", "orange")
 					.attr("stroke-width", 3)
 				d3.select("#state_name").text(d.properties.name)
-				d3.select("#state_total").text("Total: " + d3.format("$,.2f")(d.properties.total))
+				d3.select("#state_total").text("Total Funding: " + d3.format("$,.2f")(d.properties.total))
 				d3.select("#state_appropriated").text("Appropriated: " + d3.format("$,.2f")(d.properties.appropriated))
 				d3.select("#state_other").text("Other: " + d3.format("$,.2f")(d.properties.other))
 				d3.select("#state_reimbursable").text("Reimbursable: " + d3.format("$,.2f")(d.properties.reimbursable));
