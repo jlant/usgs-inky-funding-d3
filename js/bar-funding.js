@@ -22,6 +22,7 @@ var x_axis = d3.svg.axis()
 var y_axis = d3.svg.axis()
 	.scale(y_scale)
 	.orient("left")
+    .tickFormat(d3.format(".2s"));
 
 var tooltip_bar = d3.select("body")
 	.append("div")
