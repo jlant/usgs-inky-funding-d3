@@ -15,7 +15,7 @@ var y_scale_stacked = d3.scale.linear()
     .range([height_bar_stacked, 0]);
 
 var color_stacked = d3.scale.ordinal()
-    .range(["#4D4DFF", "#4DA64D", "#CC0000"]);
+    .range(["#0000CC", "#E65C00", "#007300"]);
 
 var x_axis_stacked = d3.svg.axis()
     .scale(x_scale_stacked)
@@ -91,7 +91,8 @@ d3.csv("data/2015-usgs-water-science-centers-detail-funding.csv" , function(erro
       .attr("width", x_scale_stacked.rangeBand())
       .attr("y", function(d) { return y_scale_stacked(d.y1); })
       .attr("height", function(d) { return y_scale_stacked(d.y0) - y_scale_stacked(d.y1); })
-      .style("fill", function(d) { return color_stacked(d.name); });
+      .style("fill", function(d) { return color_stacked(d.name); })
+      .style("stroke", "None");
 
     var legend_stacked = svg_bar_chart_stacked.selectAll(".legend_stacked")
       .data(color_stacked.domain().slice().reverse())
@@ -103,13 +104,16 @@ d3.csv("data/2015-usgs-water-science-centers-detail-funding.csv" , function(erro
       .attr("x", width_bar_stacked - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", color_stacked);
+      .style("fill", color_stacked)
+      .style("stroke", "none");
 
     legend_stacked.append("text")
       .attr("x", width_bar_stacked - 24)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
+      .style("fill", "black")
+      .style("stroke", "none")
       .text(function(d) { return d; });
 
 })

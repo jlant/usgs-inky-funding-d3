@@ -33,7 +33,7 @@ li.key {
 }
 
 .bar {
-    fill: red;
+    fill: #007300;
     fill-opactiy: 0.9;
     stroke: none;
 }

@@ -23,7 +23,7 @@ var tooltip = d3.select("body")
 
 // create a quantize scale (function) to sort data values into buckets of color
 var color = d3.scale.quantize()
-	.range(colorbrewer.Reds[5])
+	.range(colorbrewer.Greens[5])
 
 // make a legend
 var legend = d3.select("#legend")
