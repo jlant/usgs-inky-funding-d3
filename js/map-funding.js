@@ -119,7 +119,8 @@ d3.csv("data/2015-usgs-water-science-centers-total-funding.csv", function(fundin
 			})
 			.on("click", function(d) {	// display a tooltip
 		  		return tooltip.style("visibility", "visible")
-		  				.style("top", (event.pageY + 10) + "px").style("left", (event.pageX + 10) + "px")
+		  				.style("top", (d3.event.pageY + 10) + "px")
+		  				.style("left", (d3.event.pageX + 10) + "px")
 		  				.html("<h2>" + d.properties.name + "</h2>" + 
 		  					  "<br\>" +
 		  					  "<h3>Total: " + d3.format("$,.2f")(d.properties.total) + "</h3>" + 
